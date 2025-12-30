@@ -1,0 +1,13 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+out/
+
+### JAVA ###
+*.class
+*.log
+*.tmp
+
+### Mac OS ###
+.DS_Store
