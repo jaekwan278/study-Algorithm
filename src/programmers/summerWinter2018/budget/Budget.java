@@ -1,4 +1,4 @@
-package programmers.summerWinter.budget;
+package programmers.summerWinter2018.budget;
 
 // 예산
 
