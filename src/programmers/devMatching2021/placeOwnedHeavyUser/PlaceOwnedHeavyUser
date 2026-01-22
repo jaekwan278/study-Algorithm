@@ -1,0 +1,29 @@
+헤비 유저가 소유한 장소
+
+-- 코드를 입력하세요
+SELECT p.id, p.name, p.host_id
+FROM places p
+INNER JOIN
+(
+    SELECT host_id
+    FROM places
+    GROUP BY host_id
+    HAVING COUNT(host_id) > 1
+) tmp ON p.host_id = tmp.host_id;
+
+SELECT id, name, host_id
+FROM
+(
+    SELECT *, COUNT(*) OVER (PARTITION BY host_id) AS cnt
+    FROM places
+) t
+WHERE cnt > 1;
+
+WITH tmp AS (
+    SELECT *, COUNT(*) OVER (PARTITION BY host_id) AS cnt
+    FROM places
+)
+SELECT id, name, host_id
+FROM tmp
+WHERE cnt > 1
+ORDER BY id ASC;
