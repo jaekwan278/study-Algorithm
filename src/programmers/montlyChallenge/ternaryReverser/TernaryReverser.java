@@ -1,8 +1,8 @@
-package programmers.montlyChallenge;
+package programmers.montlyChallenge.ternaryReverser;
 
 // 3진법 뒤집기
 
-public class TerneryReverser {
+public class TernaryReverser {
 
     public int solution(int n) {
         int answer = 0;
@@ -19,7 +19,7 @@ public class TerneryReverser {
     }
 
     public static void main(String[] args) {
-        TerneryReverser task = new TerneryReverser();
+        TernaryReverser task = new TernaryReverser();
         int n = 45;
 
         System.out.println(task.solution(45));
