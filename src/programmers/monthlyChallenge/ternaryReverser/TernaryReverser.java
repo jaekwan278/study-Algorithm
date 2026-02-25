@@ -1,4 +1,4 @@
-package programmers.montlyChallenge.ternaryReverser;
+package programmers.monthlyChallenge.ternaryReverser;
 
 // 3진법 뒤집기
 

@@ -1,4 +1,4 @@
-package programmers.montlyChallenge.repeatBinaryConvert;
+package programmers.monthlyChallenge.repeatBinaryConvert;
 
 // 이진 변환 반복하기
 

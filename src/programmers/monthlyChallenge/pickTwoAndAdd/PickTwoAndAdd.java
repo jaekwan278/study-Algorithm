@@ -1,4 +1,4 @@
-package programmers.montlyChallenge.pickTwoAndAdd;
+package programmers.monthlyChallenge.pickTwoAndAdd;
 
 // 두개 뽑아서 더하기
 
