@@ -1,4 +1,4 @@
-package programmers.kakaoRecruit.newsClustering;
+package programmers.kakao2018.newsClustering;
 
 // 뉴스 클러스터링
 
