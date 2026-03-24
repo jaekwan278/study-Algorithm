@@ -1,4 +1,4 @@
-package programmers.kakao2021.numberStringAndEnglishWord;
+package programmers.kakao.numberStringAndEnglishWord;
 
 // 숫자 문자열과 영단어
 

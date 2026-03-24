@@ -1,4 +1,4 @@
-package programmers.kakao2018.findPrimeNumberInK;
+package programmers.kakao.findPrimeNumberInK;
 
 // k진수에서 소수 개수 구하기
 

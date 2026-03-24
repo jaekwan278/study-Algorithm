@@ -1,4 +1,4 @@
-package programmers.kakao2019.tuple;
+package programmers.kakao.tuple;
 
 import java.util.*;
 

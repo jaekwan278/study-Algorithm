@@ -1,4 +1,4 @@
-package programmers.kakao2018.secretMap;
+package programmers.kakao.secretMap;
 
 // 비밀지도
 

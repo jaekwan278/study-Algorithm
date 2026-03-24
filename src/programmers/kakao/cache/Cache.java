@@ -1,4 +1,4 @@
-package programmers.kakao2018.cache;
+package programmers.kakao.cache;
 
 // [1차]캐시
 

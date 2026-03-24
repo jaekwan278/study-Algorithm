@@ -1,4 +1,4 @@
-package programmers.kakao2025.trainTrack;
+package programmers.kakao.trainTrack;
 
 // 기차 선로
 
