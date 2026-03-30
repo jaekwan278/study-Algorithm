@@ -30,20 +30,87 @@ public class ArrayOfSquareCnt2 {
     private long getValidRangeCount(int[] arr, long[] lenArr, long target, long len){
         long result = 0;
 
-        int startIdx = 0;
-        int endIdx = 0;
+        int leftIdx = 0;
+        int rightIdx = 0;
 
         long curIdx = 0;
         long curSum = 0;
 
-        long idx = len;
+        // initial value setting
+        while(curIdx < len){
+            if(curIdx >= lenArr[rightIdx]) rightIdx++;
 
+            long move = Math.min((len - curIdx), (lenArr[rightIdx] - curIdx));
 
-//        while(curIdx <= (lenArr[lenArr.length - 1] - len)){
-//
-//        }
+            if(move <= 0) break;
+
+            curIdx += move;
+            curSum += arr[rightIdx] * move;
+        }
+
+        while(curIdx <= lenArr[lenArr.length-1]){
+            // value
+            long offset = arr[rightIdx] - arr[leftIdx];
+            curSum += offset;
+            long diff = target - curSum;
+
+            // length
+            long leftStart = (leftIdx == 0 ? 1 : lenArr[leftIdx - 1] + 1);
+
+            int leftOff = (int)((curIdx - len) - leftStart + 1);
+            int rightOff = (int)(lenArr[rightIdx] - curIdx);
+
+            int move = Math.min(leftOff, rightOff);
+
+            if(move <= 0) break;
+
+            // verify
+            result += isVerifySubArr(diff, offset, move);
+
+            // increase
+            curIdx += move;
+            curSum += (offset * (move - 1));
+
+            if(lenArr[rightIdx] < curIdx) rightIdx++;
+            if(lenArr[leftIdx] < (curIdx - len)) leftIdx++;
+
+        }
 
         return result;
+    }
+
+    // 333 22 333 1 1
+    // subarray verification process
+    private long isVerifySubArr(long diff, long offset, int move){
+
+        if(offset == 0 && diff != 0){
+//            System.out.println("case 1");
+            return 0;
+        }
+
+        if(diff == 0){
+            if(offset == 0){
+//                System.out.println("case 2");
+                return move;
+            }
+
+            else{
+//                System.out.println("case 3");
+                return 1;
+            }
+        }
+
+        if((diff < 0 && offset > 0) || (diff > 0) && offset < 0){
+
+            if((diff % offset == 0) && (Math.abs(diff) / Math.abs(offset) <= move)){
+//                System.out.println("case 4");
+                return 1;
+            }
+
+        }
+
+//        System.out.println("case 0");
+        return 0;
     }
 
     // length accumulation array
@@ -91,11 +158,17 @@ public class ArrayOfSquareCnt2 {
 //        int[] arr = {3, 2, 3, 1, 1};
 //        int l = 5, r = 7;
 //
-        int[] arr = {8, 8, 6, 5, 2, 9, 8, 4, 3, 10};
-        int l = 10, r = 27;
+//        int[] arr = {8, 8, 6, 5, 2, 9, 8, 4, 3, 10};
+//        int l = 25, r = 27;
 //
-//        int[] arr = {49134, 86806, 94548, 88849, 95022, 28334, 16637, 79487, 23773, 7314, 47370, 50269, 36573, 9415, 44674, 28096};
-//        int l = 61242, r = 88535;
+//        int[] arr = {70195, 25471, 7389, 58187, 18454, 90532, 97667, 17148, 91636, 2810};
+//        int l = 126058, r = 462933;
+
+//        int[] arr = {16952, 70276, 16771, 37992, 87549, 54906, 36718, 20478, 57088, 27916, 51509, 83422, 51707, 18807, 80859, 2673, 37734, 93380};
+//        int l = 149845, r = 228204;
+
+        int[] arr = {70195, 25471, 7389, 58187, 18454, 90532, 97667, 17148, 91636, 2810};
+        int l = 126058, r = 462933;
 
         System.out.println(Arrays.toString(task.solution(arr, l, r)));
     }
