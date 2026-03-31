@@ -14,7 +14,7 @@ public class ArrayOfSquareCnt2 {
         long len = (r - l + 1);
 
         // if range length == 1 ?
-        if(len == 1){
+        if (len == 1) {
             for (int n : arr) if (n == answer[0]) answer[1] += n;
 
             return answer;
@@ -27,7 +27,7 @@ public class ArrayOfSquareCnt2 {
     }
 
     // answer[1]
-    private long getValidRangeCount(int[] arr, long[] lenArr, long target, long len){
+    private long getValidRangeCount(int[] arr, long[] lenArr, long target, long len) {
         long result = 0;
 
         int leftIdx = 0;
@@ -37,104 +37,89 @@ public class ArrayOfSquareCnt2 {
         long curSum = 0;
 
         // initial value setting
-        while(curIdx < len){
-            if(curIdx >= lenArr[rightIdx]) rightIdx++;
+        while (curIdx < len) {
+            if (curIdx >= lenArr[rightIdx]) rightIdx++;
 
             long move = Math.min((len - curIdx), (lenArr[rightIdx] - curIdx));
 
-            if(move <= 0) break;
+            if (move <= 0) break;
 
             curIdx += move;
             curSum += arr[rightIdx] * move;
         }
 
-        while(curIdx <= lenArr[lenArr.length-1]){
-            // value
+        // loop
+        while (curIdx <= lenArr[lenArr.length - 1]) {
+            long leftOff = lenArr[leftIdx] - (curIdx - len);
+            long rightOff = lenArr[rightIdx] - curIdx;
+            long move = Math.min(leftOff, rightOff) + 1;
+
             long offset = arr[rightIdx] - arr[leftIdx];
-            curSum += offset;
-            long diff = target - curSum;
 
-            // length
-            long leftStart = (leftIdx == 0 ? 1 : lenArr[leftIdx - 1] + 1);
+            result += isVerifySubArr((curSum - target), offset, move);
+            curSum += (move - 1) * offset;
 
-            int leftOff = (int)((curIdx - len) - leftStart + 1);
-            int rightOff = (int)(lenArr[rightIdx] - curIdx);
+            if(leftOff == (move - 1)) leftIdx++;
+            if(rightOff == (move - 1)) rightIdx++;
 
-            int move = Math.min(leftOff, rightOff);
+            if(rightIdx >= arr.length) break;
 
-            if(move <= 0) break;
-
-            // verify
-            result += isVerifySubArr(diff, offset, move);
-
-            // increase
             curIdx += move;
-            curSum += (offset * (move - 1));
-
-            if(lenArr[rightIdx] < curIdx) rightIdx++;
-            if(lenArr[leftIdx] < (curIdx - len)) leftIdx++;
-
+            curSum = curSum + arr[rightIdx] - arr[leftIdx];
         }
 
         return result;
     }
-
     // 333 22 333 1 1
-    // subarray verification process
-    private long isVerifySubArr(long diff, long offset, int move){
 
-        if(offset == 0 && diff != 0){
-//            System.out.println("case 1");
+    // subarray verification process
+    private long isVerifySubArr(long diff, long offset, long move) {
+
+        if (offset == 0 && diff != 0) {
             return 0;
         }
 
-        if(diff == 0){
-            if(offset == 0){
-//                System.out.println("case 2");
+        if (diff == 0) {
+            if (offset == 0) {
                 return move;
-            }
-
-            else{
-//                System.out.println("case 3");
+            } else {
                 return 1;
             }
         }
 
-        if((diff < 0 && offset > 0) || (diff > 0) && offset < 0){
+        if ((diff < 0 && offset > 0) || (diff > 0) && offset < 0) {
 
-            if((diff % offset == 0) && (Math.abs(diff) / Math.abs(offset) <= move)){
-//                System.out.println("case 4");
+            if ((diff % offset == 0) && (Math.abs(diff) / Math.abs(offset) <= move)) {
                 return 1;
             }
 
         }
 
-//        System.out.println("case 0");
         return 0;
     }
 
     // length accumulation array
-    private long[] getLenArr(int[] arr){
+    private long[] getLenArr(int[] arr) {
         long[] result = new long[arr.length];
         result[0] = arr[0];
 
-        for(int i = 1; i < arr.length; i++) result[i] = arr[i] + result[i-1];
+        for (int i = 1; i < arr.length; i++) result[i] = arr[i] + result[i - 1];
 
         return result;
     }
 
     // answer[0]
-    private long getSum(int[] arr, long l, long r){
+    private long getSum(int[] arr, long l, long r) {
         long result = 0;
 
         long idx = 1;
-        for(int cur : arr){
+        for (int cur : arr) {
             long start = idx;
             long end = idx + cur - 1;
 
-            if(start > r) break;
+            if (start > r) break;
 
-            if(end < l) {
+            if (end < l) {
                 idx += cur;
                 continue;
             }
@@ -167,8 +152,62 @@ public class ArrayOfSquareCnt2 {
 //        int[] arr = {16952, 70276, 16771, 37992, 87549, 54906, 36718, 20478, 57088, 27916, 51509, 83422, 51707, 18807, 80859, 2673, 37734, 93380};
 //        int l = 149845, r = 228204;
 
-        int[] arr = {70195, 25471, 7389, 58187, 18454, 90532, 97667, 17148, 91636, 2810};
-        int l = 126058, r = 462933;
+//        int[] arr = {70195, 25471, 7389, 58187, 18454, 90532, 97667, 17148, 91636, 2810};
+//        int l = 126058, r = 462933;
+
+//        int[] arr = {100000, 1, 100000};
+//        int l = 50000, r = 50010;
+
+//        int[] arr = {5, 100000, 3, 100000, 2};
+//        long l = 4, r = 100020;
+
+//        int[] arr = {3, 2, 3, 2, 3};
+//        long l = 2, r = 8;
+
+//        int[] arr = {2, 3, 2};
+//        long l = 2, r = 4;
+
+//        int[] arr = {100000, 5, 5, 5};
+//        long l = 50000, r = 50020;
+
+//        int[] arr = {100000, 1, 100000, 1, 100000};
+//        long l = 99990;
+//        long r = 100010;
+
+//        int[] arr = {5, 100000, 3, 100000, 2};
+//        long l = 4;
+//        long r = 100020;
+
+//        int[] arr = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+//        long l = 1, r = 13;
+
+//        int[] arr = {3, 100000, 3};
+//        long l = 2;
+//        long r = 100002;
+
+//        int[] arr = {10, 5, 3, 1};
+//        int l = 3, r = 3;
+
+//
+//        int[] arr = {2, 1, 2};
+//        long l = 2;
+//        long r = 4;
+
+//        int[] arr = {1, 2, 1};
+//        long l = 1;
+//        long r = 3;
+
+//        int[] arr = {1, 3, 2};
+//        long l = 2;
+//        long r = 4;
+
+        int[] arr = {2, 2, 1, 2};
+        long l = 1;
+        long r = 3;
+
+        // 22 22 1 22
+
+        // 1 22 1
 
         System.out.println(Arrays.toString(task.solution(arr, l, r)));
     }
