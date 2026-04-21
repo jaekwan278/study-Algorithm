@@ -2,11 +2,8 @@ package programmers.practice.convertNumbers;
 
 // 숫자 변환하기
 
-import utils.Compare;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ConvertNumbers {
