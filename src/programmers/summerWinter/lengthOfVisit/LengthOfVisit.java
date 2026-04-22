@@ -1,4 +1,4 @@
-package programmers.summerWinter2018.lengthOfVisit;
+package programmers.summerWinter.lengthOfVisit;
 
 // 방문 길이
 

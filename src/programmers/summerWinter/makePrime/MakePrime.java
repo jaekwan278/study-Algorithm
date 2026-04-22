@@ -1,4 +1,4 @@
-package programmers.summerWinter2018.makePrime;
+package programmers.summerWinter.makePrime;
 
 // 소수 만들기
 

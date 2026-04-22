@@ -1,4 +1,4 @@
-package programmers.summerWinter2018.englishWordChain;
+package programmers.summerWinter.englishWordChain;
 
 // 영어 끝말잇기
 

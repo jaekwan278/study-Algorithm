@@ -1,4 +1,4 @@
-package programmers.summerWinter2018.jumpAndTeleport;
+package programmers.summerWinter.jumpAndTeleport;
 
 // 점프와 순간 이동
 
