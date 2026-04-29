@@ -15,8 +15,6 @@ package programmers.intro.oxQuiz;
 
 import utils.Compare;
 
-import java.util.Arrays;
-
 public class OXQuiz {
 
     public String[] solution(String[] quiz) {

@@ -4,7 +4,6 @@ package programmers.greedy.lifeBoat;
 
 import utils.Compare;
 
-import java.util.ArrayDeque;
 import java.util.Arrays;
 
 public class LifeBoat {

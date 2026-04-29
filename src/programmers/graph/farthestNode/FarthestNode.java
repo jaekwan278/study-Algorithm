@@ -4,7 +4,6 @@ package programmers.graph.farthestNode;
 
 import utils.Compare;
 
-import java.sql.Array;
 import java.util.*;
 
 public class FarthestNode {

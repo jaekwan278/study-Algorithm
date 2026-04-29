@@ -5,7 +5,6 @@ package programmers.practice.secretCodeJustTwoOfUs;
 import utils.Compare;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SecretCodeJustTwoOfUs {

@@ -2,8 +2,6 @@ package programmers.exhaustiveSearch.mockTest;
 
 // 모의고사
 
-import utils.Compare;
-
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
