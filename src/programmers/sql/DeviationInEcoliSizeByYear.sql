@@ -27,7 +27,7 @@ SELECT
     e.id
 FROM tmp t
 RIGHT JOIN ecoli_data e ON YEAR(e.differentiation_date) = t.year
-ORDER BY t.year, (t.maxSize - e.size_of_colony)
+ORDER BY t.year, (t.maxSize - e.size_of_colony);
 
 -- 코드를 작성해주세요 (3 시도)
 SELECT
@@ -37,4 +37,13 @@ SELECT
         ) - size_of_colony AS year_dev,
     id
 FROM ecoli_data
-ORDER BY `year`, year_dev
+ORDER BY `year`, year_dev;
+
+-- 코드를 작성해 주세요 (오라클)
+SELECT
+    EXTRACT(YEAR FROM differentiation_date) AS `year`,
+    MAX(size_of_colony) OVER (
+        PARTITION BY EXTRACT(YEAR FROM differentiation_date)
+    ) - size_of_colony AS `year_dev`
+FROM ecoli_data
+ORDER BY year, year_dev;
