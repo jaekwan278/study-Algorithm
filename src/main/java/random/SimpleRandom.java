@@ -2,7 +2,7 @@ package random;
 
 import java.util.Random;
 
-public class Main {
+public class SimpleRandom {
     static Random random = new Random();
     static int random(int n){
         return Math.abs(random.nextInt()) % n;

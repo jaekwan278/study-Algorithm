@@ -16,3 +16,12 @@ out/
 *.db
 *.sqlite
 *.sqlite3
+
+### gradle ###
+build/
+.gradle/
+
+### vim ###
+*.swp
+*.swo
+*~

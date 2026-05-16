@@ -2,6 +2,7 @@ package utils;
 
 public class Compare {
     // 속도 비교
+    // 워밍업 부재, 측정 횟수 1회 -> 신뢰성 적음
     public static void measureTime(Runnable taskA, Runnable taskB){
 
         // taskA 소요 시간
