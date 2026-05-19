@@ -1,7 +1,10 @@
 plugins {
+    // java
     id 'java'
+    // jmh
     id 'me.champeau.jmh' version '0.7.2'
-    id 'org.jetbrains.kotlin.jvm'
+    // kotlin
+    id 'org.jetbrains.kotlin.jvm' version '2.2.0'
 }
 
 repositories {
@@ -9,11 +12,26 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.openjdk.jmh:jmh-core:1.37'
-    annotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    // jmh
+    jmh 'org.openjdk.jmh:jmh-core:1.37'
+    jmhAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
 }
+
+// plugin이 자동으로 설정
+//sourceSets {
+//    jmh {
+//        java {
+//            srcDirs = ['src/jmh/java']
+//        }
+//    }
+//}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 kotlin {
     jvmToolchain(17)
 }

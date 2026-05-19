@@ -1,4 +1,4 @@
-package utils;
+package benchmark;
 
 import org.openjdk.jmh.annotations.*;
 
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 5, time = 1)
 // jvm 2번 생성해서 테스트
 @Fork(2)
-public class JmhTemplate {
+public class BenchmarkTemplate {
 
     private int value;
 
