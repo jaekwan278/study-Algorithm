@@ -1,4 +1,4 @@
-package test.level2;
+package programmers.skillCheck.level2.temp;
 
 import java.util.*;
 
