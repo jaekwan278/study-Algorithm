@@ -2,7 +2,7 @@ package programmers.skillCheck.level2.temp;
 
 import java.util.Arrays;
 
-public class Level2_3 {
+public class Level2_2_1 {
 
     public int[] solution(long begin, long end) {
         int[] answer = new int[(int)(end - begin) + 1];
@@ -39,7 +39,7 @@ public class Level2_3 {
     }
 
     public static void main(String[] args) {
-        Level2_3 task = new Level2_3();
+        Level2_2_1 task = new Level2_2_1();
 
         long begin = 1, end = 10;
 

@@ -2,7 +2,7 @@ package programmers.skillCheck.level2.temp;
 
 import java.util.*;
 
-public class Level2_2 {
+public class Level2_1_2 {
 
     public int[] solution(String[] maps) {
         int[] answer = {};
@@ -55,7 +55,7 @@ public class Level2_2 {
     }
 
     public static void main(String[] args) {
-        Level2_2 task = new Level2_2();
+        Level2_1_2 task = new Level2_1_2();
 
         String[] maps = {"X591X", "X1X5X", "X231X", "1XXX1"};
 

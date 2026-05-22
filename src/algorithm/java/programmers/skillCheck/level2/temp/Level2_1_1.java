@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
-public class Level2_1 {
+public class Level2_1_1 {
 
     public int[] solution(int[] prices) {
         int[] answer = new int[prices.length];
@@ -51,7 +51,7 @@ public class Level2_1 {
     }
 
     public static void main(String[] args) {
-        Level2_1 task = new Level2_1();
+        Level2_1_1 task = new Level2_1_1();
 
         int[] prices = {1, 2, 3, 2, 3};
 
