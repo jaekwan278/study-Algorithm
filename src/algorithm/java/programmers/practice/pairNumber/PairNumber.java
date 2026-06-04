@@ -1,5 +1,7 @@
 package programmers.practice.pairNumber;
 
+// 숫자 짝궁
+
 import java.util.HashMap;
 import java.util.Map;
 

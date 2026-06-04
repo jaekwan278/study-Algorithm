@@ -1,4 +1,4 @@
-package programmers.monthlyChallenge2.rotateParentheses;
+package programmers.monthlyChallenge.rotateParentheses;
 
 // 괄호 회전하기
 

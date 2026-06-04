@@ -1,4 +1,4 @@
-package programmers.monthlyChallenge3.n2ArrayCut;
+package programmers.monthlyChallenge.n2ArrayCut;
 
 // n^2 배열 자르기
 
