@@ -1,6 +1,7 @@
 package benchmark.bestSet;
 
 // 연습문제 > 최고의 집합
+// 0. testA()
 
 import org.openjdk.jmh.annotations.*;
 

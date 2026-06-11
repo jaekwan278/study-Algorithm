@@ -4,6 +4,7 @@ import org.openjdk.jmh.annotations.*;
 import java.util.concurrent.TimeUnit;
 
 // SummerWinter > 기지국 설치
+// 0. solution2()
 
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)

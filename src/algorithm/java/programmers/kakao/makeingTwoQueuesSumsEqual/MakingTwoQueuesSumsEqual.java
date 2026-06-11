@@ -2,8 +2,6 @@ package programmers.kakao.makeingTwoQueuesSumsEqual;
 
 // 두 큐 합 같게 만들기
 
-import java.util.Arrays;
-
 public class MakingTwoQueuesSumsEqual {
     // try 1 ( pass )
     private static class Box{
