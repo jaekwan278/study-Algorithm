@@ -1,4 +1,4 @@
-package benchmark.countingQuadsAfterCompressionBenchmark;
+package benchmark.countingQuadsAfterCompression;
 
 import org.openjdk.jmh.annotations.*;
 
