@@ -56,41 +56,41 @@ public class SumOfContiguousSubSequenceBenchmark {
         }
     }
 
-    /// try 1 (pass) - tail to head
-    @Benchmark
-    public int[] tailToHead(BenchmarkState state) {
-        int[] answer = new int[2];
-
-        int len = state.sequence.length - 1;
-        int min = Integer.MAX_VALUE;
-
-        for(int i = 0; i <= len; i++){
-
-            int curSum = 0;
-            int curLen = len - i;
-            for(int j = curLen; j >= 0; j--){
-
-                curSum += state.sequence[j];
-
-                if(curSum == state.k && (curLen - j) <= min){
-                    min = curLen - j;
-
-                    answer[0] = j;
-                    answer[1] = curLen;
-                }
-
-                if(curSum > state.k){
-                    break;
-                }
-
-                if(curSum < state.k && j == 0){
-                    return answer;
-                }
-            }
-        }
-
-        return answer;
-    }
+//    /// try 1 (pass) - tail to head
+//    @Benchmark
+//    public int[] tailToHead(BenchmarkState state) {
+//        int[] answer = new int[2];
+//
+//        int len = state.sequence.length - 1;
+//        int min = Integer.MAX_VALUE;
+//
+//        for(int i = 0; i <= len; i++){
+//
+//            int curSum = 0;
+//            int curLen = len - i;
+//            for(int j = curLen; j >= 0; j--){
+//
+//                curSum += state.sequence[j];
+//
+//                if(curSum == state.k && (curLen - j) <= min){
+//                    min = curLen - j;
+//
+//                    answer[0] = j;
+//                    answer[1] = curLen;
+//                }
+//
+//                if(curSum > state.k){
+//                    break;
+//                }
+//
+//                if(curSum < state.k && j == 0){
+//                    return answer;
+//                }
+//            }
+//        }
+//
+//        return answer;
+//    }
 
     /// try 2 (pass) two pointer
     @Benchmark
@@ -119,5 +119,31 @@ public class SumOfContiguousSubSequenceBenchmark {
         }
 
         return answer;
+    }
+
+    ///  other 1
+    @Benchmark
+    public int[] otherSolution(BenchmarkState state) {
+
+        int left = 0, right = -1, sum = 0;
+        int length = 1000001, sLeft = 0, sRight = 0;
+
+        while (right < state.sequence.length) {
+
+            if (sum < state.k) {
+                if (++right < state.sequence.length)
+                    sum += state.sequence[right];
+            } else if (state.k < sum) {
+                sum -= state.sequence[left++];
+            } else {
+                if (right - left < length) {
+                    length = right - left;
+                    sLeft = left;
+                    sRight = right;
+                }
+                sum -= state.sequence[left++];
+            }
+        }
+        return new int[] { sLeft, sRight };
     }
 }
